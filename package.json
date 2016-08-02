@@ -1,0 +1,29 @@
+{
+  "name": "decorator-eq",
+  "version": "1.0.0",
+  "description": "Decorator for portation of haskell typeclass eq",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://adyballa@github.com/adyballa/decorator-eq.git"
+  },
+  "keywords": [
+    "decorator",
+    "portation",
+    "haskell",
+    "typeclass",
+    "eq",
+    "comparable",
+    "equality",
+    "inequality"
+  ],
+  "author": "= <=>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/adyballa/decorator-eq/issues"
+  },
+  "homepage": "https://github.com/adyballa/decorator-eq#readme"
+}
