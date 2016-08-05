@@ -11,6 +11,7 @@
     "inlineSources": true
   },
   "files": [
-    "eq.typeclass.ts"
+    "eq.typeclass.ts",
+    "gulpfile.ts"
   ]
 }

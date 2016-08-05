@@ -3,4 +3,5 @@
 node_modules
 eq.typeclass.d.ts
 eq.typeclass.js
-node_modules/
+results.txt
+test/
