@@ -4,4 +4,4 @@ node_modules
 eq.typeclass.d.ts
 eq.typeclass.js
 results.txt
-test/
+dist/
