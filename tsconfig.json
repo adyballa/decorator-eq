@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es5",
     "outDir": "dist",
     "module": "commonjs",
     "declaration": true,
@@ -8,10 +8,16 @@
     "removeComments": true,
     "moduleResolution": "node",
     "sourceMap": true,
-    "inlineSources": true
+    "inlineSources": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true
+
   },
   "files": [
     "eq.typeclass.ts",
-    "gulpfile.ts"
+    "typings/index.d.ts"
+  ],
+  "exclude": [
+    "node_modules"
   ]
 }
