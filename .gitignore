@@ -2,3 +2,5 @@
 .idea
 node_modules
 results.txt
+eq.typeclass.js
+eq.typeclass.d.ts
