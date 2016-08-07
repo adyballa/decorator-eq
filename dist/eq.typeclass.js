@@ -4,29 +4,10 @@ var __extends = (this && this.__extends) || function (d, b) {
     function __() { this.constructor = d; }
     d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
 };
-function isEq(object) {
-    return (typeof object === 'object' && 'eq' in object && 'neq' in object);
-}
-exports.isEq = isEq;
-var EqField = (function () {
-    function EqField(name) {
-        this.name = name;
-    }
-    EqField.prototype.eq = function (a, b) {
-        var vals = [this.value(a), this.value(b)];
-        return (vals[0] === null || vals[1] === null) ? null :
-            (isEq(vals[0])) ? vals[0].eq(vals[1]) : (vals[0] === vals[1]);
-    };
-    EqField.prototype.neq = function (a, b) {
-        var val = this.eq(a, b);
-        return (val === null) ? null : !val;
-    };
-    EqField.prototype.value = function (object) {
-        return object[this.name];
-    };
-    return EqField;
-}());
-exports.EqField = EqField;
+var eq_interface_1 = require("./eq.interface");
+var eq_config_1 = require("./eq.config");
+exports.EqField = eq_config_1.EqField;
+exports.EqConfig = eq_config_1.EqConfig;
 var FuzzyEqField = (function (_super) {
     __extends(FuzzyEqField, _super);
     function FuzzyEqField() {
@@ -38,7 +19,7 @@ var FuzzyEqField = (function (_super) {
             return null;
         }
         else {
-            if (isEq(vals[0])) {
+            if (eq_interface_1.isEq(vals[0])) {
                 return vals[0].eq(vals[1]);
             }
             else {
@@ -52,32 +33,8 @@ var FuzzyEqField = (function (_super) {
         }
     };
     return FuzzyEqField;
-}(EqField));
+}(eq_config_1.EqField));
 exports.FuzzyEqField = FuzzyEqField;
-var EqConfig = (function () {
-    function EqConfig() {
-        this._fields = [];
-    }
-    Object.defineProperty(EqConfig.prototype, "fields", {
-        get: function () {
-            return this._fields;
-        },
-        set: function (fields) {
-            this._fields = fields;
-        },
-        enumerable: true,
-        configurable: true
-    });
-    EqConfig.setCardinalityOfField = function (name, fields, newIndex) {
-        if (newIndex === void 0) { newIndex = 0; }
-        var oldKey = fields.findIndex(function (field) {
-            return (field.name === name);
-        });
-        fields.splice(newIndex, 0, fields.splice(oldKey, 1)[0]);
-    };
-    return EqConfig;
-}());
-exports.EqConfig = EqConfig;
 var Eq = (function () {
     function Eq() {
     }
@@ -113,7 +70,7 @@ var Eq = (function () {
     };
     Eq.field = function (props) {
         return function (target, propertyKey) {
-            Eq._eq.fields.push(("fuzzy" in props && props.fuzzy) ? new FuzzyEqField(propertyKey) : new EqField(propertyKey));
+            Eq._eq.fields.push(("fuzzy" in props && props.fuzzy) ? new FuzzyEqField(propertyKey) : new eq_config_1.EqField(propertyKey));
         };
     };
     Eq.implement = function (props) {
@@ -144,17 +101,4 @@ var Eq = (function () {
     return Eq;
 }());
 exports.Eq = Eq;
-var EqOr = (function () {
-    function EqOr() {
-    }
-    EqOr.fuzzyEq = function (cs, refs, config) {
-        return cs.filter(function (a) {
-            return (refs.filter(function (ref) {
-                return (ref.eq(a, config) !== false);
-            }).length > 0);
-        });
-    };
-    return EqOr;
-}());
-exports.EqOr = EqOr;
 //# sourceMappingURL=eq.typeclass.js.map

@@ -1,10 +1,13 @@
 Decorator for portation of haskell typeclass EQ
 ===============================================
 
-The Eq Interface defines equality and inequality.
+The Eq Interface defines equality and inequality in [typescript](https://www.typescriptlang.org/).
 The decorator implements the EQ-Interface.
 On the other hand it is a library for funtions.
 Mainly Lists of this interface are used.
+
+There is an es5-translation in the dist-directory.
+[tsc](https://www.typescriptlang.org/docs/handbook/compiler-options.html) was used for transpiling.
 
 ## Installation
 
@@ -57,7 +60,34 @@ that support "===" or has IEq implemented.
   neq(listOfCars, new Car('leather',null), config:IEqConfig):IEq[] //reveals all none leather cars 
 ```
  
+### Using EqConfig
+#### clone():IEqConfig 
+```javascript
+  let copyOfConfig = config.clone(); 
+```
+
+#### fields:Array<IField>
+```javascript
+  let newFields:Array<IField> = [];
+  copyOfFields.fields.foreach((val, key) => if(key%2) newFields.push(val));
+  copyOfFields.fields = newFields;
+```
  
+### Using EqOr
+#### fuzzyEq(cs:IEq[], refs:IEq[], config:IEqConfig):IEq[]
+```javascript
+  fuzzyEq(listOfCars, new Car('leather', null)) //all listOfCars
+  fuzzyEq(listOfCars, new Car('leather', 'di')) //reveals Audi and Cadillac or leather cars
+```
+
+#### eq(cs:IEq[], refs:IEq[], config:IEqConfig):IEq[]
+```javascript
+  eq(listOfCars, new Car('leather', null)) //all leather cars
+  eq(listOfCars, new Car('leather', 'di')) //reveals leather cars
+  eq(listOfCars, new Car('leather', 'audi')) //reveals leather cars or audis
+```
+
+
 ## Tests
 
   npm test
