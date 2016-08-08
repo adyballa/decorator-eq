@@ -6,8 +6,6 @@ var __extends = (this && this.__extends) || function (d, b) {
 };
 var eq_interface_1 = require("./eq.interface");
 var eq_config_1 = require("./eq.config");
-exports.EqField = eq_config_1.EqField;
-exports.EqConfig = eq_config_1.EqConfig;
 var FuzzyEqField = (function (_super) {
     __extends(FuzzyEqField, _super);
     function FuzzyEqField() {

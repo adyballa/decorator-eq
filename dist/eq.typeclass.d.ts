@@ -1,6 +1,5 @@
 import { IEq, IEqConfig, IField, IEqProps, IFieldProperty } from "./eq.interface";
-import { EqField, EqConfig } from "./eq.config";
-export { EqField, EqConfig };
+import { EqField } from "./eq.config";
 export declare class FuzzyEqField extends EqField {
     eq(a: IEq, b: IEq): boolean;
 }
