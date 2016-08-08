@@ -1,8 +1,4 @@
-import {IEq, isEq, IField, IEqConfig, TFieldValue} from "./eq.interface";
-
-export interface IFieldProperty {
-    fuzzy?:boolean
-}
+import {IEq, isEq, IField, IEqConfig, TFieldValue, IFieldProperty} from "./eq.interface";
 
 export class EqField implements IField {
 

@@ -18,6 +18,7 @@
     "eq.config.ts",
     "eq.interface.ts",
     "eq.typeclass.ts",
+    "index.ts",
     "typings/index.d.ts"
   ],
   "exclude": [
