@@ -1,7 +1,4 @@
 import { IEq, IField, IEqConfig, TFieldValue } from "./eq.interface";
-export interface IFieldProperty {
-    fuzzy?: boolean;
-}
 export declare class EqField implements IField {
     name: string;
     constructor(name: string);
