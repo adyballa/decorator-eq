@@ -2,7 +2,7 @@
 
 let should = require('chai').should(),
   expect = require('chai').expect,
-  eq = require('../dist/eq.typeclass'),
+  eq = require('../dist/index'),
   testSubject = [], testConfig
   ;
 
