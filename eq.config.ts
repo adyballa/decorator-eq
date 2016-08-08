@@ -37,7 +37,7 @@ export class EqConfig implements IEqConfig {
         this._fields = fields;
     }
 
-    public clone():IEqConfig{
+    public clone():EqConfig{
         const res = new EqConfig();
         let f : Array<IField> = [];
         this._fields.forEach((field:IField) =>{

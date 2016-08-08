@@ -10,5 +10,5 @@ export declare class EqField implements IField {
 export declare class EqConfig implements IEqConfig {
     protected _fields: Array<IField>;
     fields: Array<IField>;
-    clone(): IEqConfig;
+    clone(): EqConfig;
 }
