@@ -2,8 +2,8 @@
   "name": "decorator-eq",
   "version": "0.1.3",
   "description": "Decorator for portation of haskell typeclass eq",
-  "main": "./dist/eq.typeclass.js",
-  "typings": "./dist/eq.typeclass",
+  "main": "./dist/index.js",
+  "typings": "./dist/index",
   "scripts": {
     "test": "grunt mochaTest"
   },
