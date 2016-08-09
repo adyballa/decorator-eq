@@ -102,3 +102,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * 0.1.0 Initial release
 * 0.1.2 transpiling from typescript to es5
 * 0.1.3 reorder code in multiple files
+* 0.1.4 better transpiling
