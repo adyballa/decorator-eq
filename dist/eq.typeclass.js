@@ -1,38 +1,5 @@
 "use strict";
-var __extends = (this && this.__extends) || function (d, b) {
-    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
-    function __() { this.constructor = d; }
-    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-};
-var eq_interface_1 = require("./eq.interface");
 var eq_config_1 = require("./eq.config");
-var FuzzyEqField = (function (_super) {
-    __extends(FuzzyEqField, _super);
-    function FuzzyEqField() {
-        _super.apply(this, arguments);
-    }
-    FuzzyEqField.prototype.eq = function (a, b) {
-        var vals = [this.value(a), this.value(b)];
-        if (vals[0] === null || vals[1] === null) {
-            return null;
-        }
-        else {
-            if (eq_interface_1.isEq(vals[0])) {
-                return vals[0].eq(vals[1]);
-            }
-            else {
-                if (vals[0] === vals[1]) {
-                    return true;
-                }
-                else {
-                    return ((typeof vals[0] === "string") && (vals[1].indexOf(vals[0]) > -1)) ? null : false;
-                }
-            }
-        }
-    };
-    return FuzzyEqField;
-}(eq_config_1.EqField));
-exports.FuzzyEqField = FuzzyEqField;
 var Eq = (function () {
     function Eq() {
     }
@@ -68,7 +35,7 @@ var Eq = (function () {
     };
     Eq.field = function (props) {
         return function (target, propertyKey) {
-            Eq._eq.fields.push(("fuzzy" in props && props.fuzzy) ? new FuzzyEqField(propertyKey) : new eq_config_1.EqField(propertyKey));
+            Eq._eq.fields.push(("fuzzy" in props && props.fuzzy) ? new eq_config_1.FuzzyEqField(propertyKey) : new eq_config_1.EqField(propertyKey));
         };
     };
     Eq.implement = function (props) {

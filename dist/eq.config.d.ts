@@ -7,6 +7,10 @@ export declare class EqField implements IField {
     value(object: IEq): TFieldValue;
     clone(): EqField;
 }
+export declare class FuzzyEqField extends EqField {
+    eq(a: IEq, b: IEq): boolean;
+    clone(): EqField;
+}
 export declare class EqConfig implements IEqConfig {
     protected _fields: Array<IField>;
     fields: Array<IField>;

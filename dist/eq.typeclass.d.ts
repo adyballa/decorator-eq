@@ -1,8 +1,5 @@
 import { IEq, IEqConfig, IField, IEqProps, IFieldProperty } from "./eq.interface";
 import { EqField } from "./eq.config";
-export declare class FuzzyEqField extends EqField {
-    eq(a: IEq, b: IEq): boolean;
-}
 export declare class Eq {
     protected static _eq: {
         fields: Array<EqField>;
