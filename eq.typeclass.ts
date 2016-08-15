@@ -30,7 +30,7 @@ export class Eq {
             }
         }
         if (config) {
-            config.fields = _f;
+            config.fields = config.fields.concat(_f);
         }
     }
 
