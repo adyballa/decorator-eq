@@ -1,6 +1,6 @@
 {
   "name": "decorator-eq",
-  "version": "0.1.5",
+  "version": "0.1.6",
   "description": "Decorator for portation of haskell typeclass eq",
   "main": "./dist/index.js",
   "typings": "./dist/index",

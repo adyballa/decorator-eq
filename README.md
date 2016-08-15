@@ -104,3 +104,4 @@ Add unit tests for any new or changed functionality. Lint and test your code.
 * 0.1.3 reorder code in multiple files
 * 0.1.4 better transpiling
 * 0.1.5 fuzzy field cloning
+* 0.1.6 config-fields handling
