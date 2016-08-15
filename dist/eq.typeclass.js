@@ -30,7 +30,7 @@ var Eq = (function () {
             }
         }
         if (config) {
-            config.fields = _f;
+            config.fields = config.fields.concat(_f);
         }
     };
     Eq.field = function (props) {
