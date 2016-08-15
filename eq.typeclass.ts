@@ -1,25 +1,5 @@
-import {IEq, isEq, IEqConfig, IField, IEqProps, IFieldProperty} from "./eq.interface";
-import {EqField} from "./eq.config";
-
-export class FuzzyEqField extends EqField {
-
-    public eq(a:IEq, b:IEq):boolean {
-        let vals = [this.value(a), this.value(b)];
-        if (vals[0] === null || vals[1] === null) {
-            return null;
-        } else {
-            if (isEq(vals[0])) {
-                return (<IEq> vals[0]).eq(<IEq> vals[1])
-            } else {
-                if (vals[0] === vals[1]) {
-                    return true;
-                } else {
-                    return ((typeof vals[0] === "string") && ((<string> vals[1]).indexOf(<string> vals[0]) > -1)) ? null : false;
-                }
-            }
-        }
-    }
-}
+import {IEq, IEqConfig, IField, IEqProps, IFieldProperty} from "./eq.interface";
+import {EqField, FuzzyEqField} from "./eq.config";
 
 export class Eq {
 

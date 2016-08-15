@@ -1,4 +1,9 @@
 "use strict";
+var __extends = (this && this.__extends) || function (d, b) {
+    for (var p in b) if (b.hasOwnProperty(p)) d[p] = b[p];
+    function __() { this.constructor = d; }
+    d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
+};
 var eq_interface_1 = require("./eq.interface");
 var EqField = (function () {
     function EqField(name) {
@@ -22,6 +27,36 @@ var EqField = (function () {
     return EqField;
 }());
 exports.EqField = EqField;
+var FuzzyEqField = (function (_super) {
+    __extends(FuzzyEqField, _super);
+    function FuzzyEqField() {
+        _super.apply(this, arguments);
+    }
+    FuzzyEqField.prototype.eq = function (a, b) {
+        var vals = [this.value(a), this.value(b)];
+        if (vals[0] === null || vals[1] === null) {
+            return null;
+        }
+        else {
+            if (eq_interface_1.isEq(vals[0])) {
+                return vals[0].eq(vals[1]);
+            }
+            else {
+                if (vals[0] === vals[1]) {
+                    return true;
+                }
+                else {
+                    return ((typeof vals[0] === "string") && (vals[1].indexOf(vals[0]) > -1)) ? null : false;
+                }
+            }
+        }
+    };
+    FuzzyEqField.prototype.clone = function () {
+        return new FuzzyEqField(this.name);
+    };
+    return FuzzyEqField;
+}(EqField));
+exports.FuzzyEqField = FuzzyEqField;
 var EqConfig = (function () {
     function EqConfig() {
         this._fields = [];
